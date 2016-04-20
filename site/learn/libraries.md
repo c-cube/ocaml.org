@@ -17,6 +17,9 @@ the most popular sites where you can find them.
   libraries here that people haven't pushed to OPAM for one reason or
   another.
 
+* [awesome-ocaml](https://github.com/rizo/awesome-ocaml) is a community-edited
+  github repository that lists many libraries by category.
+
 * [OCaml Forge](http://forge.ocamlcore.org/) is a code hosting site
   dedicated to OCaml projects. Hundreds of libraries are hosted
   here. Like GitHub, many of these libraries are in OPAM, but you'll
