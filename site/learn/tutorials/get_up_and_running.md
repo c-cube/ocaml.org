@@ -50,6 +50,12 @@ well. You can even switch to a beta compiler like so:
 opam switch 4.03.0+beta1
 ```
 
+After running `opam switch`, you should type the following command, which will update your `$PATH` variable as well as some other OCaml-related environment:
+
+```shell
+eval `opam config env`
+```
+
 3. `ocamlfind` is a program that predates `opam` and wraps the
 standard `OCaml` compilers: `ocamlc` and `ocamlopt`. The former is a
 byte code compiler and the latter creates native code.
@@ -224,6 +230,7 @@ courtesy of Jane Street.
 directory named `src`
     
 3. Here is a template of the contents of the **\_oasis** file
+  (which is indentation-sensitive, see `$ oasis manual` for more details)
 
 ```conf
 OASISFormat:  0.4
@@ -239,26 +246,26 @@ Plugins:      META (0.4), DevFiles (0.4)
 AlphaFeatures: ocamlbuild_more_args
 
 Description:
-Some cool description
+  Some cool description
 
 # This is a comment and this below creates an binary program
 Executable <some_program_name>
-Path: src
-BuildTools:ocamlbuild
-install: true
-MainIs: main.ml
-CompiledObject: native
-BuildDepends: package_one, package_two
+  Path: src
+  BuildTools:ocamlbuild
+  install: true
+  MainIs: main.ml
+  CompiledObject: native
+  BuildDepends: package_one, package_two
 
 # Another comment, this builds a library called pg
 Library pg
-Path:         src
-# oasis will figure out the dependencies, 
-# Just list the modules you want public, 
-# Note that there's no .ml, just give the name
-Modules:      Pg
-CompiledObject: byte
-BuildDepends: some_package
+  Path:         src
+  # oasis will figure out the dependencies, 
+  # Just list the modules you want public, 
+  # Note that there's no .ml, just give the name
+  Modules:      Pg
+  CompiledObject: byte
+  BuildDepends: some_package
 ```
 
 4. Generate the Makefile, setup.ml, configure and other build crap.
